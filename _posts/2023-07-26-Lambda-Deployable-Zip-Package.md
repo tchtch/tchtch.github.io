@@ -11,19 +11,7 @@ Organize Your Code: Arrange your Lambda function code and any necessary dependen
 
 Zip the Files: Package the code and dependencies into a ZIP file. It's essential to avoid including any unnecessary directories or absolute paths to prevent deployment issues.
 
-Deploying the Lambda Function
-AWS Console: Go to the AWS Management Console and navigate to the Lambda service. Click "Create Function," and choose the "Upload a .zip file" option. Upload your ZIP file and configure the function's settings.
-
-AWS CLI: Use the AWS Command Line Interface (CLI) to deploy your function. Use the aws lambda create-function command, specifying the ZIP file location, function details, and required permissions.
-
-Deployment Pipeline: For automated deployments, integrate your Lambda function ZIP file creation and deployment steps into a deployment pipeline, such as AWS CodePipeline or Jenkins.
-
-Testing and Iterating
-After deployment, thoroughly test your Lambda function to ensure it behaves as expected. If updates are needed, make changes to your code, create a new ZIP file, and redeploy.
-
-By following these steps, you can successfully create and deploy your AWS Lambda function ZIP file, allowing your serverless application to run seamlessly in the AWS cloud environment. Regularly update and test your function to ensure smooth and efficient deployments for your serverless architecture.
-
-In this post I'll share a Bash Script that automate packaging your python code lambda function : 
+To automate packaging your python code lambda function , I wrote the following bash script to help me automate the process in my local dev env: 
 
 [Source in Github](https://github.com/tchtch/Bash_Scripts/blob/main/build_lambda_function_zip_file.sh)   
 
@@ -230,4 +218,15 @@ function_package_build
 
 {% endhighlight %}
 
+Deploying the Lambda Function
+    AWS Console: Go to the AWS Management Console and navigate to the Lambda service. Click "Create Function," and choose the "Upload a .zip file" option. Upload your ZIP file and configure the function's settings.
+    AWS CLI: Use the AWS Command Line Interface (CLI) to deploy your function. Use the aws lambda create-function command, specifying the ZIP file location, function details, and required permissions.
+    Deployment Pipeline: For automated deployments, integrate your Lambda function ZIP file creation and deployment steps into a deployment pipeline, such as AWS CodePipeline, Jenkins, Terraform, Harness, GithubActions, Spacelift or others... 
+
+Testing and Iterating
+After deployment, thoroughly test your Lambda function to ensure it behaves as expected. If updates are needed, make changes to your code, create a new ZIP file, and redeploy.
+
+By following these steps, you can successfully create and deploy your AWS Lambda function ZIP file, allowing your serverless application to run seamlessly in the AWS cloud environment. Regularly update and test your function to ensure smooth and efficient deployments for your serverless architecture.
 Have fun coding!
+
+Follow the next blog post for a newer and more relible way to automate Lambda function Zip file creation ...[Post](https://tchtch.github.io/Lambda-Layer) 
