@@ -3,8 +3,7 @@ layout: post
 title: Create an AWS Lambda Function deployable zip package
 ---
 
-![Lambda](/images/Lambda.png)
-AWS Lambda is a powerful serverless compute service that enables you to run code without managing servers. To deploy your code to AWS Lambda, you need to create a ZIP file containing your Lambda function's code and any required dependencies.
+AWS Lambda is a powerful serverless compute service that enables you to run code without managing servers. To deploy your code to AWS Lambda, you need to create a ![Lambda](/images/Lambda.png)ZIP file containing your Lambda function's code and any required dependencies.
 
 Building the Lambda Function ZIP File
 Organize Your Code: Arrange your Lambda function code and any necessary dependencies into a structured directory. Ensure that the main function's entry point is clearly defined.
