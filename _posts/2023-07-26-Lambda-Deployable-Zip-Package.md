@@ -10,8 +10,7 @@ Building the Lambda Function ZIP File
 Organize Your Code: Arrange your Lambda function code and any necessary dependencies into a structured directory. Ensure that the main function's entry point is clearly defined.
 
 Zip the Files: Package the code and dependencies into a ZIP file. It's essential to avoid including any unnecessary directories or absolute paths to prevent deployment issues.
-
-To automate packaging your python code lambda function , I wrote the following bash script to help me automate the process in my local dev env: 
+To automate the process, I wrote the following bash script run in a local dev env (laptop, Desktop, VM, WSL...)linux machine: 
 
 [Source in Github](https://github.com/tchtch/Bash_Scripts/blob/main/build_lambda_function_zip_file.sh)   
 
