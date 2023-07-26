@@ -25,6 +25,7 @@ By following these steps, you can successfully create and deploy your AWS Lambda
 In this post I'll share a Bash Script that automate packaging your python code lambda function : {% link {{ (https://github.com/tchtch/Bash_Scripts/blob/main/build_lambda_function_zip_file.sh) }} %} Source in Github 
 
 {% highlight bash %}
+
 #!/usr/bin/env bash
 ##################################################################################################
 ## -- GENERAL INFORMATION
@@ -108,26 +109,22 @@ function get_package_manager() {
     osFlavor[/etc/alpine-release]="sudo apk --update add"
     osFlavor[/etc/centos-release]="sudo yum install -y"
     osFlavor[/etc/fedora-release]="sudo dnf install -y"
-
     for f in "${!osFlavor[@]}"; do
         if [[ -f "$f" ]]; then
             package_manager="${osFlavor[$f]}"
             break
         fi
     done
-
     if [ -z "$package_manager" ]; then
         echo -e "${red}Error: ${magenta}Package manager not detected for this OS.${clear}"
         exit 1
     fi
     # Get the list of packages to install (pass as an array argument to the function)
     packages_to_install=("$@")
-
     if [ ${#packages_to_install[@]} -eq 0 ]; then
         echo -e "${yellow}No packages specified for installation.${clear}"
         return
     fi
-
     echo -e "${green}-Installing packages...${clear}${check}"
     $package_manager "${packages_to_install[@]}" &>/dev/null;
 }
@@ -175,7 +172,6 @@ function build_deployment_package() {
     #echo -e "${green}  Checking Zip file size${clear}${check}" 
     package_size=$(du -k ${ZIP_PACKAGE_DIR}/${LAMBDA_FUNCTION_NAME}.zip | cut -f1)
     max_package_size_kb=250000  # Maximum deployment package size in KB (250 MB)
-    
     if [ "$package_size" -gt "$max_package_size_kb" ]; then
         echo -e "${red}Error: Deployment package size exceeds the limit of 250 MB.${clear}"
         exit 1
@@ -197,8 +193,7 @@ function clean_up_build() {
            #source "${TEMP_DIR}/${PYTHON_VIRTUALENV_DIR}"/bin/deactivate
            sudo rm -Rf "${TEMP_DIR}/${PYTHON_VIRTUALENV_DIR}"
            sudo rm -Rf "${TEMP_DIR}"
-           echo -e "${green}Cleaning was performed successfuly.${clear}${check}"
-           
+           echo -e "${green}Cleaning was performed successfuly.${clear}${check}"    
    	else
          echo -e "${magenta}Clean up lambda build venv was not process.${clear}"
          exit 0
@@ -212,7 +207,6 @@ function function_package_build() {
         echo -e "${red}ERROR: working directory $SOURCE_CODE_DIR does not exist...${clear}"
         exit 1
     fi
-    
     if [ -d "${TEMP_DIR}" ]; then
         sudo rm -Rf ${TEMP_DIR}
     fi
@@ -232,4 +226,5 @@ trap ctrl_c SIGINT
 function_package_build
 
 {% endhighlight %}
+
 Have fun coding!
