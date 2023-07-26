@@ -23,7 +23,7 @@ After deployment, thoroughly test your Lambda function to ensure it behaves as e
 By following these steps, you can successfully create and deploy your AWS Lambda function ZIP file, allowing your serverless application to run seamlessly in the AWS cloud environment. Regularly update and test your function to ensure smooth and efficient deployments for your serverless architecture.
 
 In this post I'll share a Bash Script that automate packaging your python code lambda function :
-""
+{% highlight bash %}
 #!/usr/bin/env bash
 ##################################################################################################
 ## -- GENERAL INFORMATION
@@ -229,5 +229,6 @@ function function_package_build() {
 # main
 trap ctrl_c SIGINT
 function_package_build
-""
+
+{% endhighlight %}
 Have fun coding!
