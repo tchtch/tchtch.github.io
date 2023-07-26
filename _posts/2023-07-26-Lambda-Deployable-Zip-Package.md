@@ -24,7 +24,7 @@ By following these steps, you can successfully create and deploy your AWS Lambda
 
 In this post I'll share a Bash Script that automate packaging your python code lambda function : 
 
-[Source in Github]((https://github.com/tchtch/Bash_Scripts/blob/main/build_lambda_function_zip_file.sh)   
+[Source in Github](https://github.com/tchtch/Bash_Scripts/blob/main/build_lambda_function_zip_file.sh)   
 
 {% highlight bash %}
 
